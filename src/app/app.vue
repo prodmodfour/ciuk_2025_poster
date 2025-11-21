@@ -74,9 +74,73 @@
       class="segment-image"
     />
     <!-- add 1–2 bullets about workspace tracker & upfront costing -->
+    </section>
+  </article>
+
+  <!-- Carbon Intensity Segment Content -->
+  <article class="segment segment-intensity">
+  <h2>Carbon Intensity</h2>
+
+  <section>
+    <h3>How do we get this data?</h3>
+    <img
+      src="/images/carbon_intensity_api_logo.png"
+      alt="Carbon Intensity API"
+      class="inline-logo-img"
+    />
+    <p>Use the NESO / National Grid Carbon Intensity API to fetch real-time and forecast gCO₂/kWh for GB.</p>
+    <!-- condense your paragraph into 2–3 bullets -->
+  </section>
+
+  <section>
+    <h3>What does this data show us?</h3>
+    <img
+      src="/images/generation_mix.png"
+      alt="Generation mix"
+      class="segment-image"
+    />
+    <p>The generation mix (wind, solar, gas, etc.) that determines how clean the grid is at each moment.</p>
+  </section>
+
+  <section>
+    <h3>How can we reduce footprint?</h3>
+    <img
+      src="/images/carbon_intensity_forecast.png"
+      alt="Carbon intensity forecast chart"
+      class="segment-image"
+    />
+    <p>Time-shift flexible workloads into the greenest hours shown by the forecast.</p>
+    </section>
+  </article>
+
+  <!-- Carbon Footprint Segment Content -->
+<article class="segment segment-footprint">
+  <h2>Carbon Footprint</h2>
+
+  <section>
+    <h3>Potential impact</h3>
+    <p>The GitHub-style heatmap shows daily carbon footprint from Ada workspaces over the year.</p>
+    <!-- you can add 2–3 more short sentences from your spec -->
+  </section>
+
+  <section>
+    <h3>Today’s usage</h3>
+    <img
+      src="/images/actual_github_commit_history_style_carbon_footprint_heatmap.png"
+      alt="Actual carbon footprint heatmap"
+      class="segment-image"
+    />
+  </section>
+
+  <section>
+    <h3>If we reduce idle & right-size machines</h3>
+    <img
+      src="/images/idealised_github_commit_history_style_carbon_footprint_heatmap.png"
+      alt="Idealised carbon footprint heatmap"
+      class="segment-image"
+    />
   </section>
 </article>
-
 
   </main>
 </template>
@@ -179,7 +243,7 @@
   color: #fff;
 }
 
-/* Color coding to direct the eye */
+/* Segment Colour Coding*/
 .segment-electricity { background: #2b87ff; }  /* blue */
 .segment-intensity   { background: #e64141; }  /* red */
 .segment-footprint   { background: #2da863; }  /* green */
@@ -213,6 +277,17 @@
   margin: 6px 0;
   background: white;      /* so charts sit on a white card */
   padding: 4px;
+}
+
+/* Carbon Intensity Segment Styles */
+.inline-logo-img {
+  max-width: 90px;
+  margin-bottom: 4px;
+}
+
+/* General text styles */
+.poster p, .poster li {
+  line-height: 1.4;
 }
 
 </style>
