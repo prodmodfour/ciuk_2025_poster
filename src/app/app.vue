@@ -29,7 +29,6 @@
     </section>
 
     <section class="equation">
-      <h2>Carbon Footprint Equation</h2>
       <p>Electricity (kWh) × Carbon Intensity (gCO₂eq/kWh) = Carbon Footprint (gCO₂eq)</p>
     </section>
   </div>
