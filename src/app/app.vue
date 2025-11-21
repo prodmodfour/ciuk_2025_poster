@@ -34,7 +34,6 @@ Together, these tools aim to raise awareness, promote sustainability, and suppor
   </section>
 
 
-
   <article class="segment segment-electricity">
   <h2>Electricity</h2>
 
@@ -74,22 +73,13 @@ Together, these tools aim to raise awareness, promote sustainability, and suppor
       alt="Workspace tracker UI"
       class="segment-image"
     />
-<ul>
-  <li>Workspace tracker
     <ul>
-      <li>workspace_tracker.png</li>
-      <li>Implementing a workspace tracking card that shows the user how much idle electricity usage and thus waste carbon emisions their workspace has used thus far. This is to encourage them 
-    to turn off their workspaces.</li>
+      <li>Workspace tracker: Implementing a card that shows idle electricity usage and waste carbon emissions.</li>
+      <li>Upfront Costing: Display average carbon usage values for each machine size before creation.</li>
     </ul>
-  </li>
-  <li>Upfront Costing: Display average carbon usage values for each machine size before the user creates the workspace.</li>
-</ul>
-
-
     </section>
   </article>
 
-  <!-- Carbon Intensity Segment Content -->
   <article class="segment segment-intensity">
   <h2>Carbon Intensity</h2>
 
@@ -100,12 +90,9 @@ Together, these tools aim to raise awareness, promote sustainability, and suppor
       alt="Carbon Intensity API"
       class="inline-logo-img"
     />
-    <ul> The Carbon Intensity API (from NESO/National Grid ESO) is an open, machine-learning–driven web service that provides real-time and 
-forecast data on how carbon-intensive electricity is in Great Britain, expressed in grams of CO₂ per kWh. 
-It exposes programmatic endpoints for both national and regional views, giving historic, current, and up-to-96-hours-ahead estimates based on the generation mix (renewables, nuclear, fossil fuels, imports, etc.), 
-allowing apps, devices, and services
-to schedule their electricity use at times when the grid is “cleaner” and thereby reduce associated emissions.
-</ul>
+    <ul> The Carbon Intensity API (NESO) provides real-time and forecast data on GB grid carbon intensity. 
+    It uses generation mix data (renewables, nuclear, fossil fuels) to allow apps to schedule electricity use during "cleaner" times.
+    </ul>
 </section>
 
   <section>
@@ -115,12 +102,8 @@ to schedule their electricity use at times when the grid is “cleaner” and th
       alt="Generation mix"
       class="segment-image"
     />
-    <p>In the context of the Carbon Intensity API and the GB grid, the generation mix is simply the breakdown of how electricity is being produced at any given moment
-—how much is coming from sources like wind, solar, nuclear, hydro, gas, coal, biomass, and interconnectors (imports from other countries). 
-Each of those technologies has a different carbon footprint, so the mix directly determines the grid’s overall carbon intensity in grams of CO₂ per kWh. 
-When there’s lots of wind and solar on the system, for example, the mix is “greener” and carbon intensity goes down; when gas and especially coal dominate, it goes up.
-The API exposes this mix in its data so that developers and users can see not just how dirty or clean the grid is, 
-but why—and then choose to shift usage to periods where low-carbon sources make up a bigger share.</p>
+    <p>The generation mix breaks down electricity production (wind, solar, gas, etc.). 
+    When renewables dominate, intensity drops; when fossil fuels dominate, it rises. This transparency helps users choose low-carbon periods.</p>
   </section>
 
   <section>
@@ -130,27 +113,17 @@ but why—and then choose to shift usage to periods where low-carbon sources mak
       alt="Carbon intensity forecast chart"
       class="segment-image"
     />
-    <p>The Carbon Intensity Forecast widget makes time-shifting really simple: it shows how “clean” or “dirty” the grid is expected to be throughout the day,
-so you can move flexible electricity use into the greenest hours. The line chart plots the forecast carbon intensity in gCO₂/kWh,
-and features like the shaded working-day window and the highlighted “Best 3h window” help you quickly spot when emissions will be lowest.
-By scheduling things like EV charging, washing machines, dishwashers, or data-heavy computing tasks into those low-carbon periods—and avoiding the higher peaks at the edges of the day—
-you keep your lifestyle the same but reduce the emissions associated with your electricity use.</p>
+    <p>The Forecast widget enables time-shifting. The line chart and highlighted "Best 3h window" help users schedule heavy computing or other tasks during low-carbon periods, reducing emissions without changing lifestyle.</p>
     </section>
   </article>
 
-  <!-- Carbon Footprint Segment Content -->
-<article class="segment segment-footprint">
+  <article class="segment segment-footprint">
   <h2>Carbon Footprint</h2>
 
   <section>
     <h3>Potential impact</h3>
-    <p>The GitHub-style carbon footprint heatmap shows a whole year of activity at a glance by representing each day as a small square in a calendar grid, 
-just like the familiar commit history view on GitHub. Instead of counting code commits, each square encodes the total carbon footprint from Ada workspace usage on that day. 
-The colour ranges from green (low carbon footprint) through orange to red (high carbon footprint), so long stretches of red quickly reveal periods of heavy or wasteful usage,
-while greener patches indicate days where users either ran fewer workloads, chose smaller machine sizes, made good use of time-shifting, or switched off idle workspaces.
-Because it aggregates both busy and idle usage into a simple visual summary, the heatmap lets users intuitively see how their decisions over the year add up for the planet,
-and highlights how much cleaner things could look if they reduced unnecessary idle time and avoided overprovisioning.</p>
-    <!-- you can add 2–3 more short sentences from your spec -->
+    <p>The GitHub-style heatmap shows a year of activity. Each square is a day, colored from green (low carbon) to red (high carbon). 
+    It visualizes trends, revealing wasteful usage periods (red) versus efficient operations (green), helping users intuitively understand the long-term impact of their computing choices.</p>
   </section>
 
   <section>
@@ -160,6 +133,7 @@ and highlights how much cleaner things could look if they reduced unnecessary id
       alt="Actual carbon footprint heatmap"
       class="segment-image"
     />
+    <p><i>Current state with heavy idle usage.</i></p>
   </section>
 
   <section>
@@ -169,6 +143,7 @@ and highlights how much cleaner things could look if they reduced unnecessary id
       alt="Idealised carbon footprint heatmap"
       class="segment-image"
     />
+    <p><i>Projected state with optimized resources.</i></p>
   </section>
 </article>
 
@@ -188,7 +163,7 @@ and highlights how much cleaner things could look if they reduced unnecessary id
 
   /* responsive width, let height grow with content */
   width: 100%;
-  max-width: 840px;
+  max-width: 840px; /* Scaled down A0 representation for screen */
 
   padding: 32px;
   display: flex;
@@ -210,7 +185,7 @@ and highlights how much cleaner things could look if they reduced unnecessary id
     margin: 0;
     width: 100%;
     height: auto;
-    padding: 40mm;
+    padding: 30mm; /* Slightly reduced padding to fit content better */
   }
 }
 
@@ -219,7 +194,8 @@ and highlights how much cleaner things could look if they reduced unnecessary id
   display: grid;
   grid-template-columns: 1fr 3fr 1.2fr;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
+  margin-bottom: 10px;
 }
 
 .poster-header img {
@@ -229,7 +205,7 @@ and highlights how much cleaner things could look if they reduced unnecessary id
 
 .poster-header h1 {
   font-size: 28px;
-  line-height: 1.2;
+  line-height: 1.1;
   margin: 0;
 }
 
@@ -248,7 +224,7 @@ and highlights how much cleaner things could look if they reduced unnecessary id
 
 .abstract, .equation {
   border-radius: 16px;
-  padding: 16px 20px;
+  padding: 12px 20px;
   background: #f7f7f7;
 }
 
@@ -256,23 +232,21 @@ and highlights how much cleaner things could look if they reduced unnecessary id
 .equation h2 {
   margin-top: 0;
   font-size: 20px;
+  margin-bottom: 8px;
 }
 
-.segments {
-  display: flex;          /* use flexbox instead of grid */
-  flex-direction: column; /* stack children vertically */
-  gap: 16px;              /* space between rows */
-}
-
+/* Segment Container Styles */
 .segment {
   border-radius: 16px;
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  padding: 16px 20px;
   color: #fff;
+  
+  /* Grid Layout for shorter vertical height */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 Equal columns */
+  gap: 20px;
+  align-items: start;
 }
-
 
 /* Segment Colour Coding*/
 .segment-electricity { background: #2b87ff; }  /* blue */
@@ -281,41 +255,63 @@ and highlights how much cleaner things could look if they reduced unnecessary id
 
 /* Headings inside colored blocks */
 .segment h2 {
-  font-size: 18px;
-  margin: 0 0 4px;
+  font-size: 22px;
+  margin: 0 0 10px;
+  
+  /* Make the H2 span across the top of the 3 columns */
+  grid-column: 1 / -1;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding-bottom: 8px;
 }
+
 .segment h3 {
-  font-size: 14px;
-  margin: 8px 0 4px;
+  font-size: 16px;
+  margin: 0 0 8px;
+  font-weight: 600;
+  min-height: 40px; /* Ensure alignment across columns */
+  display: flex;
+  align-items: flex-end;
 }
+
 .segment p, .segment li {
-  font-size: 13px;
-  line-height: 1.3;
+  font-size: 12px;
+  line-height: 1.35;
 }
 
+.segment ul {
+  padding-left: 20px;
+  margin: 0;
+}
 
-/* Electricity Segment Styles */
+/* Image Handling within Grid */
 .inline-logo img {
-  max-width: 80px;
+  max-width: 100px;
   height: auto;
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 
 .segment-image {
-  max-width: 80%;
-  height: auto;
-  border-radius: 10px;
-  margin: 8px auto;
-  background: white;      /* so charts sit on a white card */
-  padding: 4px;
-  object-fit: contain;
+  width: 100%; /* Fill the grid column */
+  max-height: 180px; /* Cap height to keep segment short */
+  object-fit: contain; /* Don't distort aspect ratio */
+  border-radius: 8px;
+  margin: 8px 0;
+  background: white;
+  padding: 6px;
 }
 
-/* Carbon Intensity Segment Styles */
 .inline-logo-img {
-  max-width: 90px;
-  margin-bottom: 4px;
+  max-width: 120px; /* Slightly larger for the API logo */
+  background: white;
+  padding: 4px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+/* Specific adjustment for Footprint heatmaps to ensure visibility */
+.segment-footprint .segment-image {
+  max-height: 220px; /* Allow slightly more height for heatmaps */
 }
 
 /* General text styles */
