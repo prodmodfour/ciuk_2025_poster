@@ -18,7 +18,14 @@
 
   <section class="abstract">
   <h2>Project Abstract</h2>
-  <p>…your abstract text…</p>
+  <p>This project presents a suite of interactive visual tools designed to monitor, forecast, and reduce carbon intensity and energy usage. 
+The Carbon Intensity Forecast visualizes predicted carbon intensity over a 48-hour period, enabling users to schedule activities during low-impact periods, 
+with highlighted windows indicating the greenest operating times. 
+Complementing this, Usage Graphs display electricity consumption and associated carbon emissions, broken down by project, machine, experiment, 
+or user—revealing inefficiencies such as excessive idle usage in ISIS workspaces. 
+A GitHub-style heatmap offers an intuitive, color-coded overview of daily carbon footprint trends, helping users quickly assess whether their operations are becoming greener over time. 
+Additional features include workspace tracking, allowing individuals to monitor energy and carbon metrics in real time, and machine size usage tracking, providing average emission data to encourage efficient resource choices. 
+Together, these tools aim to raise awareness, promote sustainability, and support data-driven decision-making within the STFC community. </p>
   </section>
 
   <section class="equation">
@@ -228,10 +235,9 @@
 }
 
 .segments {
-  flex: 1; /* take remaining height */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  display: flex;          /* use flexbox instead of grid */
+  flex-direction: column; /* stack children vertically */
+  gap: 16px;              /* space between rows */
 }
 
 .segment {
