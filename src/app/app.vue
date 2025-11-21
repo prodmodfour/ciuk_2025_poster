@@ -33,19 +33,7 @@ Together, these tools aim to raise awareness, promote sustainability, and suppor
     <p>Electricity (kWh) × Carbon Intensity (gCO₂eq/kWh) = Carbon Footprint (gCO₂eq)</p>
   </section>
 
-  <section class="segments">
-    <article class="segment segment-electricity">
-      <!-- electricity content -->
-    </article>
 
-    <article class="segment segment-intensity">
-      <!-- carbon intensity content -->
-    </article>
-
-    <article class="segment segment-footprint">
-      <!-- carbon footprint content -->
-    </article>
-  </section>
 
   <article class="segment segment-electricity">
   <h2>Electricity</h2>
@@ -163,16 +151,17 @@ Together, these tools aim to raise awareness, promote sustainability, and suppor
   background: white;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
 
-  /* approximate A0 portrait ratio */
-  width: 840px;         /* pick any width you like */
-  height: calc(840px * 1.414); /* ≈ A-series portrait ratio */
+  /* responsive width, let height grow with content */
+  width: 100%;
+  max-width: 840px;
 
-  padding: 40px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
+
 
 /* Print: use full page */
 @page {
@@ -242,12 +231,13 @@ Together, these tools aim to raise awareness, promote sustainability, and suppor
 
 .segment {
   border-radius: 16px;
-  padding: 16px 14px;
+  padding: 12px 14px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   color: #fff;
 }
+
 
 /* Segment Colour Coding*/
 .segment-electricity { background: #2b87ff; }  /* blue */
@@ -278,11 +268,13 @@ Together, these tools aim to raise awareness, promote sustainability, and suppor
 }
 
 .segment-image {
-  width: 100%;
+  max-width: 80%;
+  height: auto;
   border-radius: 10px;
-  margin: 6px 0;
+  margin: 8px auto;
   background: white;      /* so charts sit on a white card */
   padding: 4px;
+  object-fit: contain;
 }
 
 /* Carbon Intensity Segment Styles */
