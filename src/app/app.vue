@@ -15,24 +15,24 @@
     </div>
   </header>
 
+  <div class="top-row">
+    <section class="abstract">
+      <h2>Project Abstract</h2>
+      <p>This project presents a suite of interactive visual tools designed to monitor, forecast, and reduce carbon intensity and energy usage. 
+    The Carbon Intensity Forecast visualizes predicted carbon intensity over a 48-hour period, enabling users to schedule activities during low-impact periods, 
+    with highlighted windows indicating the greenest operating times. 
+    Complementing this, Usage Graphs display electricity consumption and associated carbon emissions, broken down by project, machine, experiment, 
+    or user—revealing inefficiencies such as excessive idle usage in ISIS workspaces. 
+    A GitHub-style heatmap offers an intuitive, color-coded overview of daily carbon footprint trends, helping users quickly assess whether their operations are becoming greener over time. 
+    Additional features include workspace tracking, allowing individuals to monitor energy and carbon metrics in real time, and machine size usage tracking, providing average emission data to encourage efficient resource choices. 
+    Together, these tools aim to raise awareness, promote sustainability, and support data-driven decision-making within the STFC community. </p>
+    </section>
 
-  <section class="abstract">
-  <h2>Project Abstract</h2>
-  <p>This project presents a suite of interactive visual tools designed to monitor, forecast, and reduce carbon intensity and energy usage. 
-The Carbon Intensity Forecast visualizes predicted carbon intensity over a 48-hour period, enabling users to schedule activities during low-impact periods, 
-with highlighted windows indicating the greenest operating times. 
-Complementing this, Usage Graphs display electricity consumption and associated carbon emissions, broken down by project, machine, experiment, 
-or user—revealing inefficiencies such as excessive idle usage in ISIS workspaces. 
-A GitHub-style heatmap offers an intuitive, color-coded overview of daily carbon footprint trends, helping users quickly assess whether their operations are becoming greener over time. 
-Additional features include workspace tracking, allowing individuals to monitor energy and carbon metrics in real time, and machine size usage tracking, providing average emission data to encourage efficient resource choices. 
-Together, these tools aim to raise awareness, promote sustainability, and support data-driven decision-making within the STFC community. </p>
-  </section>
-
-  <section class="equation">
-    <h2>Carbon Footprint Equation</h2>
-    <p>Electricity (kWh) × Carbon Intensity (gCO₂eq/kWh) = Carbon Footprint (gCO₂eq)</p>
-  </section>
-
+    <section class="equation">
+      <h2>Carbon Footprint Equation</h2>
+      <p>Electricity (kWh) × Carbon Intensity (gCO₂eq/kWh) = Carbon Footprint (gCO₂eq)</p>
+    </section>
+  </div>
 
   <article class="segment segment-electricity">
   <h2>Electricity</h2>
@@ -185,7 +185,7 @@ Together, these tools aim to raise awareness, promote sustainability, and suppor
     margin: 0;
     width: 100%;
     height: auto;
-    padding: 30mm; /* Slightly reduced padding to fit content better */
+    padding: 30mm; 
   }
 }
 
@@ -220,19 +220,43 @@ Together, these tools aim to raise awareness, promote sustainability, and suppor
   color: #555;
 }
 
-/* Layout for sections */
+/* Top Row: Abstract & Equation Side-by-Side */
+.top-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
 
 .abstract, .equation {
   border-radius: 16px;
-  padding: 12px 20px;
+  padding: 10px 16px; /* Reduced padding */
   background: #f7f7f7;
 }
 
 .abstract h2,
 .equation h2 {
   margin-top: 0;
-  font-size: 20px;
-  margin-bottom: 8px;
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.abstract p {
+  font-size: 11px; /* Smaller text for abstract */
+  line-height: 1.25;
+  margin-bottom: 0;
+}
+
+.equation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.equation p {
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  color: #444;
 }
 
 /* Segment Container Styles */
@@ -302,16 +326,15 @@ Together, these tools aim to raise awareness, promote sustainability, and suppor
 }
 
 .inline-logo-img {
-  max-width: 120px; /* Slightly larger for the API logo */
+  max-width: 120px;
   background: white;
   padding: 4px;
   border-radius: 4px;
   margin-bottom: 8px;
 }
 
-/* Specific adjustment for Footprint heatmaps to ensure visibility */
 .segment-footprint .segment-image {
-  max-height: 220px; /* Allow slightly more height for heatmaps */
+  max-height: 220px;
 }
 
 /* General text styles */
