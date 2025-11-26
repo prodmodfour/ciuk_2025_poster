@@ -25,7 +25,7 @@
     or user—revealing inefficiencies such as excessive idle usage in ISIS workspaces. 
     A GitHub-style heatmap offers an intuitive, color-coded overview of daily carbon footprint trends, helping users quickly assess whether their operations are becoming greener over time. 
     Additional features include workspace tracking, allowing individuals to monitor energy and carbon metrics in real time, and machine size usage tracking, providing average emission data to encourage efficient resource choices. 
-    Together, these tools aim to raise awareness, promote sustainability, and support data-driven decision-making within the STFC community. </p>
+    Together, these tools aim to raise awareness, promote sustainability, and support data-driven decision-making within the STFC community. This project forms part of the STFC Scientific Computing Department Energy Efficiency Team strategy to transition the department towards net zero. </p>
       </section>
     </div>
 
@@ -129,11 +129,19 @@
     <article class="segment segment-footprint">
       <h2>Carbon Footprint</h2>
 
+      <div class="col-stack">
       <section>
         <h3>Potential impact</h3>
         <p>The GitHub-style heatmap shows a year of activity. Each square is a day, colored from green (low carbon) to red (high carbon). 
     It visualizes trends, revealing wasteful usage periods (red) versus efficient operations (green), helping users intuitively understand the long-term impact of their computing choices.</p>
       </section>
+              <section class="new-section">
+          <h3>What's next?</h3>
+          <p>
+            We are now in the process of implementing these features into the actual Ada website.
+          </p>
+        </section>
+      </div>
 
       <section>
         <h3>Today’s usage</h3>
