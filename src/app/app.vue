@@ -32,14 +32,15 @@
     <article class="segment segment-electricity">
       <h2>Electricity</h2>
 
-
-
-    <div class="col-stack">
+      <div class="col-stack">
         <section>
           <h3>How do we get this data?</h3>
+          
           <div class="inline-logo">
             <img src="/images/prometheus_logo.png" alt="Prometheus" />
+            <img src="/images/ada_logo.png" alt="Ada Logo" />
           </div>
+
           <ul>
             <li>Pull <code>node_cpu_seconds_total</code> from Ada's Prometheus Database (Both idle and busy cpu usage)</li>
             <li>Assume that a cpu core uses 12 W when busy, 1 W when idle</li>
@@ -302,7 +303,6 @@
   margin: 0 0 10px;
   font-weight: 700;
   line-height: 1.2;
-  /* Removed fixed height constraint to allow natural flow */
 }
 
 /* Text Sizing */
@@ -321,16 +321,24 @@
   margin-bottom: 6px;
 }
 
-/* Image Handling */
+/* --- UPDATED LOGO STYLING FOR SIDE-BY-SIDE --- */
+.inline-logo {
+  display: flex;       /* Use flexbox to put them side by side */
+  flex-direction: row;
+  align-items: center; /* Center them vertically relative to each other */
+  gap: 12px;           /* Space between the two logos */
+  margin-bottom: 12px;
+}
+
 .inline-logo img {
-  max-width: 140px; /* Made bigger */
+  max-width: 120px; /* Slightly reduced size to ensure two fit in the column */
   height: auto;
   display: block;
-  margin-bottom: 12px;
   background: white;
   padding: 8px;
   border-radius: 6px;
 }
+/* --------------------------------------------- */
 
 .segment-image {
   width: 100%; 
@@ -356,7 +364,6 @@
 .segment-footprint .segment-image {
   max-height: none; 
 }
-
 
 .col-stack {
   display: flex;
