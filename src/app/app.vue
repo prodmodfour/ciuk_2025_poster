@@ -142,7 +142,7 @@
           alt="Actual carbon footprint heatmap"
           class="segment-image"
         />
-        <p><i>Current state with heavy idle usage.</i></p>
+        <p class="caption"><i>Current state with heavy idle usage.</i></p>
       </section>
 
       <section>
@@ -152,7 +152,7 @@
           alt="Idealised carbon footprint heatmap"
           class="segment-image"
         />
-        <p><i>Projected state with optimized resources.</i></p>
+        <p class="caption"><i>Projected state with optimized resources.</i></p>
       </section>
     </article>
   </main>
@@ -171,13 +171,14 @@
 
   /* Responsive width */
   width: 100%;
-  max-width: 1200px; /* Increased max-width to allow content to breathe on large screens */
+  /* Increased max-width significantly to accommodate 100px+ titles and 24px+ body text */
+  max-width: 2400px; 
 
   /* Reduced padding to maximize space */
-  padding: 20px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  gap: 14px; /* Slightly tighter gap between rows */
+  gap: 30px; 
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #222;
 }
@@ -199,29 +200,96 @@
   }
 }
 
-/* Title Row Styles */
-.poster-header {
-  display: grid;
-  grid-template-columns: 0.8fr 4fr 1.2fr;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 5px;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 10px;
-}
+/* =========================================
+   TYPOGRAPHY SCALING
+   Screen: px | Print: pt
+   ========================================= */
 
-.poster-header img {
-  max-width: 100%;
-  height: auto;
-  min-width: 120px; /* Ensure logo doesn't shrink too much */
-}
-
+/* 1. MAIN TITLE 
+   Screen: 100px - 150px 
+   Print: 72pt - 110pt */
 .poster-header h1 {
-  font-size: 36px; /* Increased from 28px */
-  line-height: 1.1;
+  font-size: 110px; 
+  line-height: 1.05;
   margin: 0;
   font-weight: 800;
   color: #111;
+}
+@media print { .poster-header h1 { font-size: 90pt; } }
+
+
+/* 2. SECTION HEADERS 
+   Screen: 50px - 70px 
+   Print: 40pt - 55pt */
+.abstract h2, 
+.segment h2 {
+  font-size: 60px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+@media print { .abstract h2, .segment h2 { font-size: 48pt; } }
+
+
+/* 3. SUB-HEADERS 
+   Screen: 40px - 50px 
+   Print: 30pt - 38pt */
+.segment h3,
+.poster-header .name {
+  font-size: 45px;
+  margin: 0 0 15px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+@media print { .segment h3, .poster-header .name { font-size: 34pt; } }
+
+
+/* 4. BODY TEXT 
+   Screen: 24px - 32px 
+   Print: 18pt - 24pt */
+.abstract p,
+.segment p, 
+.segment li,
+.poster-header .email {
+  font-size: 26px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+@media print { .abstract p, .segment p, .segment li, .poster-header .email { font-size: 20pt; } }
+
+
+/* 5. CAPTIONS 
+   Screen: 20px 
+   Print: 16pt */
+.caption,
+.segment p i {
+  font-size: 20px;
+  display: block;
+  margin-top: 5px;
+}
+@media print { .caption, .segment p i { font-size: 16pt; } }
+
+
+/* =========================================
+   LAYOUT STYLES
+   ========================================= */
+
+/* Title Row Styles */
+.poster-header {
+  display: grid;
+  /* Adjusted grid to give title more space given its new size */
+  grid-template-columns: 300px 1fr 400px;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 10px;
+  border-bottom: 4px solid #eee;
+  padding-bottom: 20px;
+}
+
+.poster-header img {
+  width: 100%;
+  max-width: 250px; /* Increased logo size to match title scale */
+  height: auto;
 }
 
 .poster-header .presenter {
@@ -229,135 +297,108 @@
 }
 
 .poster-header .name {
-  font-weight: 700;
-  font-size: 24px; /* Increased from 18px */
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+  color: #222;
 }
 
 .poster-header .email {
-  font-size: 18px; /* Increased from 14px */
   color: #444;
 }
 
 /* Top Row: Abstract */
 .top-row {
-  /* Changed from grid to block because there was no second column content */
   display: block; 
   width: 100%;
 }
 
 .abstract {
-  border-radius: 12px;
-  padding: 16px 20px;
+  border-radius: 16px;
+  padding: 30px 40px;
   background: #f0f2f5;
-  border-left: 8px solid #333;
+  border-left: 12px solid #333;
 }
 
 .abstract h2 {
-  margin-top: 0;
-  font-size: 24px; /* Increased from 18px */
-  margin-bottom: 8px;
   color: #222;
-  font-weight: 700;
 }
 
 .abstract p {
-  font-size: 16px; /* Increased from 11px */
-  line-height: 1.4;
   margin-bottom: 0;
   text-align: justify;
 }
 
 /* Segment Container Styles */
 .segment {
-  border-radius: 12px;
-  padding: 14px 18px; /* Tighter padding */
+  border-radius: 16px;
+  padding: 30px; 
   color: #fff;
   
   /* Grid Layout */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; /* 3 Equal columns */
-  gap: 25px; /* Increased gap slightly so text doesn't touch */
+  gap: 40px; /* Increased gap for larger text */
   align-items: start;
 }
 
-/* Segment Colour Coding*/
+/* Segment Colour Coding */
 .segment-electricity { background: #2b87ff; }  /* blue */
 .segment-intensity   { background: #e64141; }  /* red */
 .segment-footprint   { background: #2da863; }  /* green */
 
 /* Headings inside colored blocks */
 .segment h2 {
-  font-size: 32px; /* Increased from 22px */
-  margin: 0 0 12px;
-  font-weight: 800;
-  
   /* Make the H2 span across the top of the 3 columns */
   grid-column: 1 / -1;
-  border-bottom: 2px solid rgba(255,255,255,0.4);
-  padding-bottom: 6px;
-}
-
-.segment h3 {
-  font-size: 22px; /* Increased from 16px */
-  margin: 0 0 10px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-/* Text Sizing */
-.segment p, .segment li {
-  font-size: 15px; /* Increased from 12px */
-  line-height: 1.4;
-  font-weight: 400;
+  border-bottom: 3px solid rgba(255,255,255,0.4);
+  padding-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 .segment ul {
-  padding-left: 18px;
+  padding-left: 1.2em;
   margin: 0;
 }
 
 .segment li {
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
-/* --- UPDATED LOGO STYLING FOR SIDE-BY-SIDE --- */
+/* Logo handling */
 .inline-logo {
-  display: flex;       /* Use flexbox to put them side by side */
+  display: flex;       
   flex-direction: row;
-  align-items: center; /* Center them vertically relative to each other */
-  gap: 12px;           /* Space between the two logos */
-  margin-bottom: 12px;
+  align-items: center; 
+  gap: 20px;           
+  margin-bottom: 20px;
 }
 
 .inline-logo img {
-  max-width: 120px; /* Slightly reduced size to ensure two fit in the column */
+  max-width: 180px; /* Increased size */
   height: auto;
   display: block;
   background: white;
-  padding: 8px;
-  border-radius: 6px;
+  padding: 12px;
+  border-radius: 8px;
 }
-/* --------------------------------------------- */
 
 .segment-image {
   width: 100%; 
   height: auto; 
   object-fit: contain; 
-  border-radius: 8px;
-  margin: 10px 0;
+  border-radius: 10px;
+  margin: 15px 0;
   background: white;
-  padding: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  padding: 12px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.2);
 }
 
 .inline-logo-img {
   width: 100%;
-  max-width: 180px; /* Increased from 120px */
+  max-width: 250px; /* Increased from 180px */
   background: white;
-  padding: 8px;
-  border-radius: 6px;
-  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 /* Specific adjustment for footprint to allow heatmaps to be wide */
@@ -368,11 +409,11 @@
 .col-stack {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Space between Prometheus section and New Section */
+  gap: 30px; 
 }
 
 .new-section {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 10px;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  padding-top: 20px;
 }
 </style>
