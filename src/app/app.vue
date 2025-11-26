@@ -99,9 +99,9 @@
           alt="Carbon Intensity API"
           class="inline-logo-img"
         />
-        <ul> The Carbon Intensity API (NESO) provides real-time and forecast data on GB grid carbon intensity. 
+        <p> The Carbon Intensity API (NESO) provides real-time and forecast data on GB grid carbon intensity. 
     It uses generation mix data (renewables, nuclear, fossil fuels) to allow apps to schedule electricity use during "cleaner" times.
-        </ul>
+        </p>
       </section>
 
       <section>
@@ -159,68 +159,62 @@
 </template>
 
 <script setup>
-// Static poster, no js needed
+// Static poster
 </script>
 
 <style scoped>
+/* =========================================
+   GLOBAL RESET & DEFAULTS
+   ========================================= */
+
 .poster {
-  /* Center the poster */
   margin: 1rem auto;
   background: white;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
-
-  /* Responsive width */
   width: 100%;
-  /* Increased max-width significantly to accommodate 100px+ titles and 24px+ body text */
   max-width: 2400px; 
-
-  /* Reduced padding to maximize space */
   padding: 40px;
   display: flex;
   flex-direction: column;
   gap: 30px; 
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #222;
-}
 
-/* Print: use full page */
-@page {
-  size: A0 portrait;
-  margin: 0;
+  /* CRITICAL: Set the Body Text size on the parent container.
+     This ensures ALL text inherits 26px by default unless overridden. 
+     Requested: 24px - 32px (Screen)
+  */
+  font-size: 26px; 
+  line-height: 1.4;
 }
 
 @media print {
+  @page { size: A0 portrait; margin: 0; }
   .poster {
     box-shadow: none;
     margin: 0;
-    width: 100%;
-    height: auto;
-    padding: 20mm; 
     max-width: none;
+    padding: 20mm;
+    /* Print Body Unit: 18pt - 24pt */
+    font-size: 20pt; 
   }
 }
 
 /* =========================================
-   TYPOGRAPHY SCALING
-   Screen: px | Print: pt
+   TYPOGRAPHY SPECIFICS
    ========================================= */
 
-/* 1. MAIN TITLE 
-   Screen: 100px - 150px 
-   Print: 72pt - 110pt */
+/* 1. Main Title (100px - 150px) */
 .poster-header h1 {
   font-size: 110px; 
   line-height: 1.05;
-  margin: 0;
   font-weight: 800;
-  color: #111;
+  margin: 0;
 }
 @media print { .poster-header h1 { font-size: 90pt; } }
 
 
-/* 2. SECTION HEADERS 
-   Screen: 50px - 70px 
-   Print: 40pt - 55pt */
+/* 2. Section Headers (50px - 70px) */
 .abstract h2, 
 .segment h2 {
   font-size: 60px;
@@ -231,9 +225,7 @@
 @media print { .abstract h2, .segment h2 { font-size: 48pt; } }
 
 
-/* 3. SUB-HEADERS 
-   Screen: 40px - 50px 
-   Print: 30pt - 38pt */
+/* 3. Sub-headers (40px - 50px) */
 .segment h3,
 .poster-header .name {
   font-size: 45px;
@@ -244,143 +236,91 @@
 @media print { .segment h3, .poster-header .name { font-size: 34pt; } }
 
 
-/* 4. BODY TEXT 
-   Screen: 24px - 32px 
-   Print: 18pt - 24pt */
-.abstract p,
-.segment p, 
-.segment li,
+/* 4. Body Text explicitly (Optional now, but good for safety) */
+p, li {
+  font-size: inherit; /* Inherits 26px/20pt from .poster */
+}
+
 .poster-header .email {
+  /* Ensure email matches body text size */
   font-size: 26px;
-  line-height: 1.4;
-  font-weight: 400;
+  color: #444;
 }
-@media print { .abstract p, .segment p, .segment li, .poster-header .email { font-size: 20pt; } }
+@media print { .poster-header .email { font-size: 20pt; } }
 
 
-/* 5. CAPTIONS 
-   Screen: 20px 
-   Print: 16pt */
+/* 5. Captions (20px / 16pt) */
 .caption,
+.caption i,
 .segment p i {
-  font-size: 20px;
+  font-size: 20px !important;
+  margin-top: 8px;
   display: block;
-  margin-top: 5px;
 }
-@media print { .caption, .segment p i { font-size: 16pt; } }
+@media print { .caption, .caption i, .segment p i { font-size: 16pt !important; } }
 
 
 /* =========================================
-   LAYOUT STYLES
+   LAYOUT & STRUCTURE
    ========================================= */
 
-/* Title Row Styles */
 .poster-header {
   display: grid;
-  /* Adjusted grid to give title more space given its new size */
   grid-template-columns: 300px 1fr 400px;
   align-items: center;
   gap: 40px;
-  margin-bottom: 10px;
   border-bottom: 4px solid #eee;
   padding-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .poster-header img {
   width: 100%;
-  max-width: 250px; /* Increased logo size to match title scale */
+  max-width: 250px; 
   height: auto;
 }
 
-.poster-header .presenter {
-  text-align: right;
-}
+.poster-header .presenter { text-align: right; }
+.poster-header .name { margin-bottom: 8px; }
 
-.poster-header .name {
-  margin-bottom: 8px;
-  color: #222;
-}
-
-.poster-header .email {
-  color: #444;
-}
-
-/* Top Row: Abstract */
-.top-row {
-  display: block; 
-  width: 100%;
-}
-
+/* Abstract Block */
+.top-row { display: block; width: 100%; }
 .abstract {
   border-radius: 16px;
   padding: 30px 40px;
   background: #f0f2f5;
   border-left: 12px solid #333;
 }
+.abstract p { text-align: justify; margin: 0; }
 
-.abstract h2 {
-  color: #222;
-}
-
-.abstract p {
-  margin-bottom: 0;
-  text-align: justify;
-}
-
-/* Segment Container Styles */
+/* Segment Blocks */
 .segment {
   border-radius: 16px;
   padding: 30px; 
   color: #fff;
-  
-  /* Grid Layout */
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* 3 Equal columns */
-  gap: 40px; /* Increased gap for larger text */
+  grid-template-columns: 1fr 1fr 1fr; 
+  gap: 40px; 
   align-items: start;
 }
 
-/* Segment Colour Coding */
-.segment-electricity { background: #2b87ff; }  /* blue */
-.segment-intensity   { background: #e64141; }  /* red */
-.segment-footprint   { background: #2da863; }  /* green */
+.segment-electricity { background: #2b87ff; }
+.segment-intensity   { background: #e64141; }
+.segment-footprint   { background: #2da863; }
 
-/* Headings inside colored blocks */
+/* Spanning H2 */
 .segment h2 {
-  /* Make the H2 span across the top of the 3 columns */
   grid-column: 1 / -1;
   border-bottom: 3px solid rgba(255,255,255,0.4);
   padding-bottom: 10px;
   margin-bottom: 25px;
 }
 
-.segment ul {
-  padding-left: 1.2em;
-  margin: 0;
-}
+/* Lists */
+.segment ul { padding-left: 1.2em; margin: 0; }
+.segment li { margin-bottom: 10px; }
 
-.segment li {
-  margin-bottom: 10px;
-}
-
-/* Logo handling */
-.inline-logo {
-  display: flex;       
-  flex-direction: row;
-  align-items: center; 
-  gap: 20px;           
-  margin-bottom: 20px;
-}
-
-.inline-logo img {
-  max-width: 180px; /* Increased size */
-  height: auto;
-  display: block;
-  background: white;
-  padding: 12px;
-  border-radius: 8px;
-}
-
+/* Images & Logos */
 .segment-image {
   width: 100%; 
   height: auto; 
@@ -392,18 +332,31 @@
   box-shadow: 0 6px 10px rgba(0,0,0,0.2);
 }
 
+.segment-footprint .segment-image { max-height: none; }
+
+.inline-logo {
+  display: flex;       
+  flex-direction: row;
+  align-items: center; 
+  gap: 20px;           
+  margin-bottom: 20px;
+}
+.inline-logo img {
+  max-width: 180px; 
+  height: auto;
+  display: block;
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+}
+
 .inline-logo-img {
   width: 100%;
-  max-width: 250px; /* Increased from 180px */
+  max-width: 250px; 
   background: white;
   padding: 12px;
   border-radius: 10px;
   margin-bottom: 20px;
-}
-
-/* Specific adjustment for footprint to allow heatmaps to be wide */
-.segment-footprint .segment-image {
-  max-height: none; 
 }
 
 .col-stack {
