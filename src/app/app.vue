@@ -334,7 +334,6 @@
 
 .segment-image {
   width: 100%; 
-  /* Removed max-height constraint so images grow to fill column width */
   height: auto; 
   object-fit: contain; 
   border-radius: 8px;
