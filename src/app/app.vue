@@ -358,4 +358,15 @@
   max-height: none; 
 }
 
+
+.col-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between Prometheus section and New Section */
+}
+
+.new-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 10px;
+}
 </style>
