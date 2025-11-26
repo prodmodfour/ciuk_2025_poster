@@ -166,6 +166,17 @@
 /* =========================================
    GLOBAL RESET & DEFAULTS
    ========================================= */
+/* Add this block to fix the overflow */
+*, *::before, *::after {
+  box-sizing: border-box; 
+}
+
+/* Ensure the body has no default browser margin */
+body {
+  margin: 0;
+  padding: 0;
+}
+
 
 .poster {
   margin: 1rem auto;
